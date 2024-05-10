@@ -54,13 +54,13 @@ def find_links(driver):
 
 stop_flag = False
 # Function to stop the loop gracefully
-def stop_execution():
-    global stop_flag 
-    stop_flag = True
-    print("Stopping execution...", stop_flag)
+# def stop_execution():
+#     global stop_flag 
+#     stop_flag = True
+#     print("Stopping execution...", stop_flag)
 
 # Set the hotkey for stopping execution
-keyboard.add_hotkey('f', stop_execution)
+#keyboard.add_hotkey('f', stop_execution)
 
 all_links = []
 # Define the URL
@@ -72,13 +72,13 @@ all_links = all_links + find_links(driver)
 
 flag_continue = True
 
-min_v = 300000
-max_v = 300000
+min_v = 0
+max_v = 0
 jump = 20000
 results = 0
 min_v = max_v
 try:
-    while (len(all_links)/2) < 80000 and not stop_flag:
+    while not stop_flag:
         min_v = max_v
         max_v += jump
         string_found = False
@@ -106,6 +106,18 @@ try:
                 print("An error occurred:", e)
                 string_found = False
 
+        # Remove duplicates from the single list
+        single_list_no_duplicates = list(set(all_links))
+
+        json_string = json.dumps(single_list_no_duplicates)
+        file_path = f"links_between_{min_v}_{max_v}.json"
+        # Write JSON string to file
+        with open(file_path, "w") as json_file:
+            json_file.write(json_string)
+
+        print("Links saved to JSON file successfully!")
+        print(f"the the last search value was: {min_v} {max_v}")
+
 except Exception as e:
     print("An error occurred:", e)
 
@@ -116,7 +128,7 @@ driver.quit()
 single_list_no_duplicates = list(set(all_links))
 
 json_string = json.dumps(single_list_no_duplicates)
-file_path = "links4.json"
+file_path = "links5.json"
 # Write JSON string to file
 with open(file_path, "w") as json_file:
     json_file.write(json_string)

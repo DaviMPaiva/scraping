@@ -4,6 +4,7 @@ estou pensando nos campos que podemos coletar:
 - QUARTOS
 - BANHEIROS
 - VAGAS NA GARAGEM
+- SE É CASA OU PREDIO
 - SE É CONDOMÍNIO FECHADO
 - SE TEM SALÃO DE FESTA
 - SE TEM ELEVADOR
