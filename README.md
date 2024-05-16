@@ -1,3 +1,6 @@
+![image](https://github.com/DaviMPaiva/scraping/assets/72039442/e8088753-9960-4959-afc2-e52eba4f7ada)
+
+
 estou pensando nos campos que podemos coletar:
 
 - PREÇO ok
